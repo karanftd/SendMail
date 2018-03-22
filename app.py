@@ -30,6 +30,26 @@ celery.conf.update(app.config)
 
 @app.route('/mail', methods=['POST'])
 def send_mail():
+    
+    '''
+    {
+	"to_address_dict": {
+		"To": [
+			"karan.bhalodiya@einfochips.com"
+		],
+		"CC": [
+			"karan.bhalodiya@einfochips.com"
+		],
+		"BCC": [
+			"karan.bhalodiya@einfochips.com"
+		]
+	},
+	
+    "subject" : "Test mail from python script",
+	
+	"mail_body" : "MAIL BODY\n" 
+    }
+    '''
 
     #check if param is provided & properly or not
     if not request.json or not 'to_address_dict' in request.json:
